@@ -6,4 +6,4 @@ debug
 foo.*
 *.log
 data
-*.lock
+lazy-lock.json
