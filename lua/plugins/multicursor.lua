@@ -7,8 +7,8 @@ return {
     vim.g.VM_maps = {
       ["Find Under"] = "<C-d>", -- Ctrl+d для выделения слова
       ["Find Subword Under"] = "<C-d>",
-      ["Add Cursor Down"] = "<C-Down>", -- или <C-j>
-      ["Add Cursor Up"] = "<C-Up>", -- или <C-k>
+      ["Add Cursor Down"] = "<C-j>", -- или <C-j>
+      ["Add Cursor Up"] = "<C-k>", -- или <C-k>
       ["Goto Next"] = "<C-n>",
       ["Goto Prev"] = "<C-p>",
     }
