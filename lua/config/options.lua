@@ -6,7 +6,7 @@ vim.opt.linebreak = true
 vim.opt.breakindent = true
 if vim.fn.has("win32") == 1 then
   vim.opt.shell = "pwsh.exe"
-  vim.opt.shellcmdflag = "-NoLogo -ExecutionPolicy RemoteSigned -Command"
+  vim.opt.shellcmdflag = "-NoProfile -NoLogo -ExecutionPolicy RemoteSigned -Command"
   vim.opt.shellquote = ""
   vim.opt.shellxquote = ""
 end
