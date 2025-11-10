@@ -1,0 +1,44 @@
+return {
+  "lukas-reineke/indent-blankline.nvim",
+  main = "ibl",
+  opts = {
+    indent = {
+      highlight = {
+        "RainbowRed",
+        "RainbowYellow",
+        "RainbowBlue",
+        "RainbowOrange",
+        "RainbowGreen",
+        "RainbowViolet",
+        "RainbowCyan",
+      },
+    },
+    scope = {
+      enabled = true,
+      show_start = true, -- Показывать индикатор начала scope
+      show_end = false, -- Опционально: скрыть конец для чистоты
+      highlight = "RainbowDelimiterRed", -- Цвет для scope-линии
+      char = "│", -- Символ для scope (вертикальная линия)
+    },
+    exclude = {
+      buftypes = { "terminal", "nofile" },
+      filetypes = { "help", "dashboard", "alpha", "lazy" },
+    },
+  },
+  config = function(_, opts)
+    local hooks = require("ibl.hooks")
+    -- Хук для динамического обновления цветов при смене colorscheme
+    hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+      vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+      vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+      vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+      vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+      vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+      vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+      vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+    end)
+    -- Интеграция с rainbow-delimiters (если установлен)
+    hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+    require("ibl").setup(opts)
+  end,
+}
