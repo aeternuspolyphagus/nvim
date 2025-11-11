@@ -17,7 +17,6 @@ return {
       enabled = true,
       show_start = true, -- Показывать индикатор начала scope
       show_end = false, -- Опционально: скрыть конец для чистоты
-      highlight = "RainbowDelimiterRed", -- Цвет для scope-линии
       char = "│", -- Символ для scope (вертикальная линия)
     },
     exclude = {
