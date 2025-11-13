@@ -19,10 +19,22 @@ return {
   },
   {
     "stevearc/aerial.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+      "folke/snacks.nvim", -- Добавлена зависимость для интеграции с Snacks
+    },
     keys = {
       { "<leader>umo", "<cmd>AerialOpen<CR>", desc = "Open Code Outline" },
       { "<leader>umc", "<cmd>AerialClose<CR>", desc = "Close Code Outline" },
       { "<leader>umt", "<cmd>AerialToggle<CR>", desc = "Toggle Code Outline" },
+      {
+        "<leader>ump",
+        function()
+          require("aerial").snacks_picker({ layout = { preset = "dropdown", preview = true } })
+        end,
+        desc = "Aerial Snacks Picker",
+      }, -- Новая привязка для Snacks-picker
     },
     opts = {
       backends = { "treesitter", "lsp" },
@@ -34,6 +46,11 @@ return {
       },
       attach_mode = "global",
       close_automatic_events = {},
+      update_events = { "TextChanged", "InsertLeave" }, -- Новое: события обновления
+      lsp = {
+        update_delay = 300,
+        update_when_errors = true,
+      },
       keymaps = {
         ["<CR>"] = "actions.jump",
         ["<C-v>"] = "actions.jump_vsplit",
