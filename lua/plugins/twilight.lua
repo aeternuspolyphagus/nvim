@@ -1,5 +1,6 @@
 return {
   "folke/twilight.nvim",
+  event = "BufReadPre",
   opts = {},
   config = function(_, opts)
     require("twilight").setup(opts)
