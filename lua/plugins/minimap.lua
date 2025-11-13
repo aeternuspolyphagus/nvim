@@ -1,30 +1,46 @@
 return {
-  "nvim-mini/mini.map",
-  version = false, -- Используйте последнюю версию
-  config = function()
-    local MiniMap = require("mini.map")
-    MiniMap.setup({
-      -- Основные настройки (по умолчанию; кастомизируйте при необходимости)
-      integrations = {
-        MiniMap.gen_integration.builtin_search(),
-        MiniMap.gen_integration.gitsigns(),
-        MiniMap.gen_integration.diagnostic(),
+  {
+    "lewis6991/satellite.nvim",
+    event = "VeryLazy",
+    opts = {
+      current_only = false,
+      winblend = 0,
+      zindex = 40,
+      excluded_filetypes = { "help", "TelescopePrompt", "lsp-installer" },
+      width = 2,
+      handlers = {
+        cursor = { enable = true, symbols = { "⎺", "⎻", "⎼", "⎽" } },
+        diagnostic = { enable = true },
+        gitsigns = { enable = true },
+        marks = { enable = true },
+        search = { enable = true },
       },
-      mappings = {
-        toggle = "<leader>umm", -- Переключить карту (toggle)
-        focus = "<leader>umf", -- Фокусировать карту (toggle focus)
+    },
+  },
+  {
+    "stevearc/aerial.nvim",
+    keys = {
+      { "<leader>umo", "<cmd>AerialOpen<CR>", desc = "Open Code Outline" },
+      { "<leader>umc", "<cmd>AerialClose<CR>", desc = "Close Code Outline" },
+      { "<leader>umt", "<cmd>AerialToggle<CR>", desc = "Toggle Code Outline" },
+    },
+    opts = {
+      backends = { "treesitter", "lsp" },
+      layout = {
+        max_width = { 40, 0.2 },
+        width = 20,
+        min_width = 20,
+        default_direction = "right",
       },
-      window = {
-        side = "right", -- Сторона окна (left/right)
-        width = 10, -- Ширина
+      attach_mode = "global",
+      close_automatic_events = {},
+      keymaps = {
+        ["<CR>"] = "actions.jump",
+        ["<C-v>"] = "actions.jump_vsplit",
+        ["<C-s>"] = "actions.jump_split",
       },
-    })
-    local map = vim.keymap.set
-    map("n", "<Leader>umc", MiniMap.close, { desc = "Close MiniMap" })
-    map("n", "<Leader>umf", MiniMap.toggle_focus, { desc = "Toggle MiniMap focus" })
-    map("n", "<Leader>umo", MiniMap.open, { desc = "Open MiniMap" })
-    map("n", "<Leader>umr", MiniMap.refresh, { desc = "Refresh MiniMap" })
-    map("n", "<Leader>ums", MiniMap.toggle_side, { desc = "Toggle MiniMap side" })
-    map("n", "<Leader>umt", MiniMap.toggle, { desc = "Toggle MiniMap" })
-  end,
+      show_guides = true,
+      filter_kind = false,
+    },
+  },
 }
