@@ -38,7 +38,7 @@ return {
     },
     scope = {
       enabled = true,
-      char = "║ ",
+      char = "▏ ",
       priority = 1000,
       -- set this to a single highlight, such as 'BlinkIndent' to disable rainbow-style indent guides
       -- highlights = { 'BlinkIndentScope' },
