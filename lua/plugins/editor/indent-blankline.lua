@@ -17,7 +17,7 @@ return {
     scope = {
       enabled = true,
       show_start = true, -- Показывать индикатор начала scope
-      show_end = false, -- Опционально: скрыть конец для чистоты
+      show_end = true, -- Опционально: скрыть конец для чистоты
       char = "│", -- Символ для scope (вертикальная линия)
     },
     exclude = {
