@@ -13,12 +13,34 @@ return {
         "RainbowViolet",
         "RainbowCyan",
       },
+      char = "│", -- тонкая линия (можно │ или ┊)
+    },
+    whitespace = {
+      highlight = {
+        "RainbowRed",
+        "RainbowYellow",
+        "RainbowBlue",
+        "RainbowOrange",
+        "RainbowGreen",
+        "RainbowViolet",
+        "RainbowCyan",
+      }, -- теперь пробелы тоже радужные
+      remove_blankline_trail = false, -- оставляем trailing пробелы видимыми
     },
     scope = {
       enabled = true,
-      show_start = true, -- Показывать индикатор начала scope
-      show_end = true, -- Опционально: скрыть конец для чистоты
-      char = "│", -- Символ для scope (вертикальная линия)
+      show_start = true,
+      show_end = true,
+      char = "│",
+      highlight = {
+        "RainbowRed",
+        "RainbowYellow",
+        "RainbowBlue",
+        "RainbowOrange",
+        "RainbowGreen",
+        "RainbowViolet",
+        "RainbowCyan",
+      },
     },
     exclude = {
       buftypes = { "terminal", "nofile" },
@@ -27,18 +49,21 @@ return {
   },
   config = function(_, opts)
     local hooks = require("ibl.hooks")
-    -- Хук для динамического обновления цветов при смене colorscheme
+
+    -- Определяем цвета один раз и автоматически при смене colorscheme
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-      vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-      vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-      vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-      vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-      vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
-      vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-      vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+      vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" }) -- красный
+      vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" }) -- жёлтый
+      vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" }) -- синий
+      vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" }) -- оранжевый
+      vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" }) -- зелёный
+      vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" }) -- фиолетовый
+      vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" }) -- циан
     end)
-    -- Интеграция с rainbow-delimiters (если установлен)
+
+    -- Поддержка rainbow-delimiters.nvim для scope-подсветки
     hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+
     require("ibl").setup(opts)
   end,
 }
