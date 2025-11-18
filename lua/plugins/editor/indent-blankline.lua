@@ -17,13 +17,7 @@ return {
     },
     whitespace = {
       highlight = {
-        "RainbowRed",
-        "RainbowYellow",
-        "RainbowBlue",
-        "RainbowOrange",
-        "RainbowGreen",
-        "RainbowViolet",
-        "RainbowCyan",
+        "IblWhitespace",
       }, -- теперь пробелы тоже радужные
       remove_blankline_trail = false, -- оставляем trailing пробелы видимыми
     },
@@ -49,7 +43,6 @@ return {
   },
   config = function(_, opts)
     local hooks = require("ibl.hooks")
-
     -- Определяем цвета один раз и автоматически при смене colorscheme
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
       vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" }) -- красный
@@ -60,7 +53,7 @@ return {
       vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" }) -- фиолетовый
       vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" }) -- циан
     end)
-
+    vim.api.nvim_set_hl(0, "IblWhitespace", { bg = "#3B4261" })
     -- Поддержка rainbow-delimiters.nvim для scope-подсветки
     hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
