@@ -10,3 +10,4 @@ if vim.fn.has("win32") == 1 then
   vim.opt.shellquote = ""
   vim.opt.shellxquote = ""
 end
+vim.o.guicursor = "n-v-c-sm:block,n-v-c-sm:hor20,i-ci-ve:ver25,r-cr-o:hor20"
