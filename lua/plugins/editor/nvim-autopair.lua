@@ -51,16 +51,5 @@ return {
         return prev_char == "@"
       end),
     })
-
-    -- Интеграция с blink.cmp
-    -- Автоматически добавляет закрывающую скобку после выбора функции из автодополнения
-    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-
-    -- Хук для blink.cmp (если используется через nvim-cmp совместимость)
-    -- Если blink.cmp полностью независим, этот блок может не понадобиться
-    local ok, cmp = pcall(require, "cmp")
-    if ok then
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-    end
   end,
 }
