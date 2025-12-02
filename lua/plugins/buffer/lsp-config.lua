@@ -1,10 +1,10 @@
 return {
-  "mason-org/mason-lspconfig.nvim",
+  "mason-org/mason.nvim",
   opts = {
-    ensure_installed = { "powershell_es" },
-  },
-  dependencies = {
-    { "mason-org/mason.nvim", opts = {} },
-    "neovim/nvim-lspconfig",
+    ensure_installed = {
+      "stylua",
+      "shfmt",
+      "powershell_es",
+    },
   },
 }
