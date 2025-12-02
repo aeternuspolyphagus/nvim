@@ -4,7 +4,7 @@ return {
     ensure_installed = {
       "stylua",
       "shfmt",
-      "powershell_es",
+      "powershell-editor-services",
     },
   },
 }
