@@ -1,22 +1,4 @@
 return {
-  -- {
-  --   "lewis6991/satellite.nvim",
-  --   event = "VeryLazy",
-  --   opts = {
-  --     current_only = false,
-  --     winblend = 0,
-  --     zindex = 40,
-  --     excluded_filetypes = { "help", "TelescopePrompt", "lsp-installer" },
-  --     width = 2,
-  --     handlers = {
-  --       cursor = { enable = true, symbols = { "⎺", "⎻", "⎼", "⎽" } },
-  --       diagnostic = { enable = true },
-  --       gitsigns = { enable = true },
-  --       marks = { enable = true },
-  --       search = { enable = true },
-  --     },
-  --   },
-  -- },
   {
     "stevearc/aerial.nvim",
     event = "BufReadPre",
