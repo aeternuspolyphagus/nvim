@@ -9,22 +9,22 @@ return {
       hipatterns.setup({
         highlighters = {
           critical = {
-            pattern = { "FIXME", "BUG", "ERROR", "FAIL" },
+            pattern = { "#FIXME", "#BUG", "#ERROR", "#FAIL" },
             group = "MiniHipatternsCritical",
             extmark_opts = { priority = 200 },
           },
           warning = {
-            pattern = { "HACK", "WARNING", "PERF", "OPTIMIZE" },
+            pattern = { "#HACK", "#WARNING", "#PERF", "#OPTIMIZE" },
             group = "MiniHipatternsWarning",
             extmark_opts = { priority = 200 },
           },
           note = {
-            pattern = { "NOTE", "INFO", "HINT", "IDEA", "TODO" },
+            pattern = { "#NOTE", "#INFO", "#HINT", "#IDEA", "#TODO" },
             group = "MiniHipatternsNote",
             extmark_opts = { priority = 200 },
           },
           important = {
-            pattern = { "CRITICAL", "URGENT", "DEADLINE", "REVIEW" },
+            pattern = { "#CRITICAL", "#URGENT", "#DEADLINE", "#REVIEW" },
             group = "MiniHipatternsImportant",
             extmark_opts = { priority = 200 },
           },
