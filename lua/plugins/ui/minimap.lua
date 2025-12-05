@@ -1,29 +1,29 @@
 return {
-  {
-    "lewis6991/satellite.nvim",
-    event = "VeryLazy",
-    opts = {
-      current_only = false,
-      winblend = 0,
-      zindex = 40,
-      excluded_filetypes = { "help", "TelescopePrompt", "lsp-installer" },
-      width = 2,
-      handlers = {
-        cursor = { enable = true, symbols = { "⎺", "⎻", "⎼", "⎽" } },
-        diagnostic = { enable = true },
-        gitsigns = { enable = true },
-        marks = { enable = true },
-        search = { enable = true },
-      },
-    },
-  },
+  -- {
+  --   "lewis6991/satellite.nvim",
+  --   event = "VeryLazy",
+  --   opts = {
+  --     current_only = false,
+  --     winblend = 0,
+  --     zindex = 40,
+  --     excluded_filetypes = { "help", "TelescopePrompt", "lsp-installer" },
+  --     width = 2,
+  --     handlers = {
+  --       cursor = { enable = true, symbols = { "⎺", "⎻", "⎼", "⎽" } },
+  --       diagnostic = { enable = true },
+  --       gitsigns = { enable = true },
+  --       marks = { enable = true },
+  --       search = { enable = true },
+  --     },
+  --   },
+  -- },
   {
     "stevearc/aerial.nvim",
     event = "BufReadPre",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
-      "folke/snacks.nvim", -- Добавлена зависимость для интеграции с Snacks
+      "folke/snacks.nvim",
     },
     keys = {
       { "<leader>umo", "<cmd>AerialOpen<CR>", desc = "Open Code Outline" },
@@ -35,7 +35,7 @@ return {
           require("aerial").snacks_picker({ layout = { preset = "dropdown", preview = true } })
         end,
         desc = "Aerial Snacks Picker",
-      }, -- Новая привязка для Snacks-picker
+      },
     },
     opts = {
       backends = { "treesitter", "lsp" },
@@ -47,7 +47,7 @@ return {
       },
       attach_mode = "global",
       close_automatic_events = {},
-      update_events = { "TextChanged", "InsertLeave" }, -- Новое: события обновления
+      update_events = { "TextChanged", "InsertLeave" },
       lsp = {
         update_delay = 300,
         update_when_errors = true,
