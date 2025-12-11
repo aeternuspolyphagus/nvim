@@ -1,4 +1,3 @@
--- ~/.config/nvim/lua/plugins/hipatterns.lua
 return {
   {
     "nvim-mini/mini.hipatterns",
@@ -19,12 +18,12 @@ return {
             extmark_opts = { priority = 200 },
           },
           note = {
-            pattern = { "#NOTE", "#INFO", "#HINT", "#IDEA", "#TODO" },
+            pattern = { "#NOTE", "#HINT", "#IDEA", "#TODO" },
             group = "MiniHipatternsNote",
             extmark_opts = { priority = 200 },
           },
           important = {
-            pattern = { "#CRITICAL", "#URGENT", "#DEADLINE", "#REVIEW" },
+            pattern = { "#CRITICAL", "#URGENT", "#DEADLINE", "#REVIEW", "#INFO reworked" },
             group = "MiniHipatternsImportant",
             extmark_opts = { priority = 200 },
           },
