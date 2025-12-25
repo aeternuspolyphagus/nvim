@@ -7,19 +7,19 @@ return {
   },
   keys = {
     {
-      "<leader>bcf",
+      "<leader>bmf",
       ":PartialDiffFrom<CR>",
       mode = "v",
       desc = "Partial Diff: Set region From",
     },
     {
-      "<leader>bct",
+      "<leader>bmt",
       ":PartialDiffTo<CR>",
       mode = "v",
       desc = "Partial Diff: Set region To and show diff",
     },
     {
-      "<leader>bcd",
+      "<leader>bmd",
       "<cmd>PartialDiffDelete<CR>",
       mode = "n",
       desc = "Partial Diff: Delete current diff",
