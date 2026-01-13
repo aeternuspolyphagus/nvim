@@ -22,7 +22,7 @@ return {
       remove_blankline_trail = false, -- оставляем trailing пробелы видимыми
     },
     scope = {
-      enabled = true,
+      enabled = false,
       show_start = true,
       show_end = true,
       char = "│",
