@@ -1,9 +1,9 @@
 return {
-  { "EdenEast/nightfox.nvim" },
+  { "EdenEast/nightfox.nvim", "catppuccin/nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "carbonfox",
+      colorscheme = "catppuccin-mocha",
     },
   },
 }
