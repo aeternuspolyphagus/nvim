@@ -3,5 +3,4 @@ return {
   { "nvim-mini/mini.ai", enabled = false },
   { "folke/todo-comments.nvim", enabled = false },
   { "folke/ts-comments.nvim", enabled = false },
-  { "MagicDuck/grug-far.nvim", enabled = false },
 }
