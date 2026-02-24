@@ -4,14 +4,14 @@
 
 vim.keymap.set("n", "<leader>bsp", function()
   vim.cmd([[
-    %s/\v([(\[{])\zs\S/ \0/g
-    %s/\v\S\ze[)\]}]/\0 /g
+    %s/\v([(\[{])\zs\S/ \0/gc
+    %s/\v\S\ze[)\]}]/\0 /gc
   ]])
 end, { desc = "Add spaces inside brackets" })
 
 vim.keymap.set("v", "<leader>sp", function()
   vim.cmd([[
-    '<,'>s/\v([(\[{])\zs\S/ \0/g
-    '<,'>s/\v\S\ze[)\]}]/\0 /g
+    '<,'>s/\v([(\[{])\zs\S/ \0/gc
+    '<,'>s/\v\S\ze[)\]}]/\0 /gc
   ]])
 end, { desc = "Add spaces inside brackets (selection)" })
