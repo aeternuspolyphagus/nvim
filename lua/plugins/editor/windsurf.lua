@@ -1,7 +1,7 @@
 return {
   {
     "Exafunction/codeium.nvim",
-    event = "InsertEnter",
+    event = "BufEnter",
     config = function()
       require("codeium").setup({
         enable_cmp_source = false,
