@@ -1,23 +1,20 @@
 return {
-  {
-    "saghen/blink.cmp",
-    opts = {
-      completion = {
-        ghost_text = {
-          enabled = true,
-        },
+  "saghen/blink.cmp",
+  dependencies = {
+    {
+      "Exafunction/codeium.nvim",
+    },
+  },
+  opts = {
+    completion = {
+      ghost_text = {
+        enabled = true,
       },
-
-      keymap = {
-        ["<Tab>"] = {
-          "accept",
-          "fallback",
-        },
-
-        ["<S-Tab>"] = {
-          "select_prev",
-          "fallback",
-        },
+    },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer", "codeium" },
+      providers = {
+        codeium = { name = "Codeium", module = "codeium.blink", async = true },
       },
     },
   },
