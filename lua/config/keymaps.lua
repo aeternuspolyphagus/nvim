@@ -3,14 +3,21 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "<leader>bsb", function()
-  vim.cmd([[
-    %s/\v\(\zs\S/ \0/gc
-    %s/\v\S\ze\)/\0 /gc
-    %s/\v\[\zs\S/ \0/gc
-    %s/\v\S\ze\]/\0 /gc
-    %s/\v\{\zs\S/ \0/gc
-    %s/\v\S\ze\}/\0 /gc
-  ]])
+  local pairs = {
+    { "(", ")" },
+    { "[", "]" },
+    { "{", "}" },
+  }
+
+  for _, p in ipairs(pairs) do
+    local open, close = p[1], p[2]
+
+    -- после открывающей: не пробел И не закрывающая
+    vim.cmd(string.format("%%s/\\v\\%s\\zs[^\\s%s]/ \\0/gc", open, close))
+
+    -- перед закрывающей: не пробел И не открывающая
+    vim.cmd(string.format("%%s/\\v[^\\s%s]\\ze\\%s/\\0 /gc", open, close))
+  end
 end, { desc = "Add spaces inside brackets" })
 
 vim.keymap.set("v", "<leader>bsb", function()
