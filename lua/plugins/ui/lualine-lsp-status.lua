@@ -59,7 +59,6 @@ return {
       elseif status.state == "waiting" then
         return "%#CodeiumWaiting#󱙺 AI…"
       elseif status.state == "completions" and status.total > 0 then
-        -- если появился новый вариант, запускаем мигание
         if status.current ~= prev_current then
           flash = true
           prev_current = status.current
