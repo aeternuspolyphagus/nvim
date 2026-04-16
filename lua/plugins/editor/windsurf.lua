@@ -8,10 +8,8 @@ return {
         enable_chat = false,
         virtual_text = {
           enabled = true,
-          show = false,
           manual = false,
           idle_delay = 75,
-          map_keys = false,
         },
       })
     end,

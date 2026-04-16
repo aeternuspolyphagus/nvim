@@ -10,7 +10,3 @@ if vim.fn.has("win32") == 1 then
   vim.opt.shellquote = ""
   vim.opt.shellxquote = ""
 end
-vim.api.nvim_set_hl(0, "CodeiumSuggestion", { fg = "NONE", bg = "NONE" })
-vim.api.nvim_set_hl(0, "CodeiumVirtualText", { fg = "NONE", bg = "NONE" })
-vim.api.nvim_set_hl(0, "CodeiumVirtualTextGhost", { fg = "NONE", bg = "NONE" })
-vim.api.nvim_set_hl(0, "CodeiumAnnotation", { fg = "NONE", bg = "NONE" })
