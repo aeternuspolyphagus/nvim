@@ -42,25 +42,40 @@ return {
     })
 
     local codeium_status = function()
-      local ok, api = pcall(require, "codeium.api")
+      local ok, blink = pcall(require, "blink.cmp")
       if not ok then
         return ""
       end
 
-      local status = api.status and api.status() or nil
-
-      if not status or not status.state then
+      local menu = blink.get_menu and blink.get_menu()
+      if not menu or not menu.items then
         return "%#CodeiumIdle#󰚪 AI"
       end
 
-      if status.state == "loading" then
-        return "%#CodeiumWaiting#󱙺 AI…"
-      elseif status.state == "ready" then
-        return "%#CodeiumActive#󰚩 AI"
-      elseif status.state == "error" then
-        return "%#CodeiumFlash#󰚩 ERR"
-      else
+      local total = 0
+      local current = 0
+      local idx = 0
+
+      for i, item in ipairs(menu.items) do
+        if item.source == "codeium" then
+          total = total + 1
+          if i == menu.selected_index then
+            current = total
+          end
+        end
+      end
+
+      if total == 0 then
         return "%#CodeiumIdle#󰚪 AI"
+      end
+
+      if menu.visible then
+        if current == 0 then
+          current = 1
+        end
+        return "%#CodeiumActive#󰚩 " .. current .. "/" .. total
+      else
+        return "%#CodeiumWaiting#󱙺 AI…"
       end
     end
 

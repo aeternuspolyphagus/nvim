@@ -10,8 +10,3 @@ if vim.fn.has("win32") == 1 then
   vim.opt.shellquote = ""
   vim.opt.shellxquote = ""
 end
-vim.api.nvim_create_autocmd({ "InsertEnter", "TextChangedI", "CursorMovedI" }, {
-  callback = function()
-    vim.cmd("redrawstatus")
-  end,
-})
