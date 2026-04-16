@@ -7,9 +7,7 @@ return {
         enable_cmp_source = false,
         enable_chat = false,
         virtual_text = {
-          enabled = true,
-          manual = false,
-          idle_delay = 75,
+          enabled = false,
         },
       })
     end,

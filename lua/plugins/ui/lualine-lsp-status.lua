@@ -41,43 +41,27 @@ return {
       color = { fg = "#89b4fa" },
     })
 
-    -- === Codeium / Windsurf с мигающим AI ===
-    local prev_current = 0
-    local timer = vim.loop.new_timer()
-    local flash = false
-
     local codeium_status = function()
-      local ok, vt = pcall(require, "codeium.virtual_text")
+      local ok, api = pcall(require, "codeium.api")
       if not ok then
         return ""
       end
-      local status = vt.status()
 
-      if status.state == "idle" then
-        prev_current = 0
+      local status = api.status and api.status() or nil
+
+      if not status or not status.state then
         return "%#CodeiumIdle#󰚪 AI"
-      elseif status.state == "waiting" then
-        return "%#CodeiumWaiting#󱙺 AI…"
-      elseif status.state == "completions" and status.total > 0 then
-        if status.current ~= prev_current then
-          flash = true
-          prev_current = status.current
-          timer:start(
-            200,
-            0,
-            vim.schedule_wrap(function()
-              flash = false
-              vim.cmd("redrawstatus")
-            end)
-          )
-        end
-        if flash then
-          return "%#CodeiumFlash#󰚩 " .. status.current .. "/" .. status.total
-        else
-          return "%#CodeiumActive#󰚩 " .. status.current .. "/" .. status.total
-        end
       end
-      return ""
+
+      if status.state == "loading" then
+        return "%#CodeiumWaiting#󱙺 AI…"
+      elseif status.state == "ready" then
+        return "%#CodeiumActive#󰚩 AI"
+      elseif status.state == "error" then
+        return "%#CodeiumFlash#󰚩 ERR"
+      else
+        return "%#CodeiumIdle#󰚪 AI"
+      end
     end
 
     table.insert(opts.sections.lualine_x, 1, { codeium_status })
