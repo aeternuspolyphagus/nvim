@@ -1,6 +1,6 @@
 return {
   {
-    "Exafunction/codeium.nvim",
+    "Exafunction/windsurf.nvim",
     event = "BufEnter",
     config = function()
       require("codeium").setup({
