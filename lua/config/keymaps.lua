@@ -2,6 +2,12 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+vim.keymap.set("n", "<leader>bsp", function()
+  vim.cmd([[
+    %s/ \{2,}/ /g
+  ]])
+end, { desc = "Remove extra spaces" })
+
 vim.keymap.set("n", "<leader>bsb", function()
   vim.cmd([[
     %s/\v\(\zs\S/ \0/gc
