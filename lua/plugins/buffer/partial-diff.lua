@@ -1,6 +1,7 @@
 return {
   "ryutaro-asada/partial-diff.nvim",
   event = "BufReadPre",
+  lazy = false,
   cmd = {
     "PartialDiffA",
     "PartialDiffB",

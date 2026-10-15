@@ -1,6 +1,7 @@
 return {
   "windwp/nvim-autopairs",
   event = "InsertEnter",
+  lazy = false,
   config = function()
     local npairs = require("nvim-autopairs")
     local Rule = require("nvim-autopairs.rule")

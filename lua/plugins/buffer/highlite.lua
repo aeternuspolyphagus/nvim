@@ -3,7 +3,7 @@ return {
     "nvim-mini/mini.hipatterns",
     version = false, -- Используйте последнюю версию
     event = "BufReadPre",
-    lazy = true, -- Загружайте сразу для ранней инициализации
+    lazy = false,
     config = function()
       local hipatterns = require("mini.hipatterns")
       hipatterns.setup({

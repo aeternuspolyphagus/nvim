@@ -2,6 +2,7 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   event = "BufReadPre",
   main = "ibl",
+  lazy = false,
   opts = {
     indent = {
       highlight = {
