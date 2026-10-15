@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   event = "BufReadPre",
-  lazy = false,
+  lazy = true,
   opts = {
     ensure_installed = {
       "json",

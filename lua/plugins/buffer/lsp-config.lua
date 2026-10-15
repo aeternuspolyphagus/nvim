@@ -1,7 +1,7 @@
 return {
   "mason-org/mason.nvim",
   event = "BufReadPre",
-  lazy = false,
+  lazy = true,
   opts = {
     ensure_installed = {
       "stylua",

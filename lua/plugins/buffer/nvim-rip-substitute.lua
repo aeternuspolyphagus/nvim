@@ -2,7 +2,7 @@ return {
   "chrisgrieser/nvim-rip-substitute",
   cmd = "RipSubstitute",
   event = "BufReadPre",
-  lazy = false,
+  lazy = true,
   opts = {},
   keys = {
     {

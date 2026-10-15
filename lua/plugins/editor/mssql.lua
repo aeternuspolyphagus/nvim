@@ -1,7 +1,7 @@
 return {
   "Kurren123/mssql.nvim",
   event = "BufReadPre",
-  lazy = false,
+  lazy = true,
   opts = {
     -- optional
     keymap_prefix = "<leader>m",
