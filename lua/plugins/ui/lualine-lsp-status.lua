@@ -29,18 +29,6 @@ return {
       color = { fg = "#a6e3a1", gui = "bold" },
     })
 
-    -- === Aerial ===
-    opts.sections.lualine_x = opts.sections.lualine_x or {}
-    table.insert(opts.sections.lualine_x, 2, {
-      "aerial",
-      sep = " > ",
-      depth = 2,
-      dense = false,
-      dense_sep = ".",
-      colored = true,
-      color = { fg = "#89b4fa" },
-    })
-
     -- === Автообновление статуса ===
     vim.api.nvim_create_autocmd({ "LspAttach", "LspDetach" }, {
       callback = function()
