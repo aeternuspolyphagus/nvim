@@ -40,5 +40,21 @@ return {
         vim.cmd("redrawstatus")
       end,
     })
+    -- === llama-server status ===
+
+    opts.sections.lualine_x = opts.sections.lualine_x or {}
+
+    table.insert(opts.sections.lualine_x, 1, {
+      function()
+        return require("config.llama_server").statusline()
+      end,
+
+      color = function()
+        return {
+          fg = require("config.llama_server").statusline_color(),
+          gui = "bold",
+        }
+      end,
+    })
   end,
 }
