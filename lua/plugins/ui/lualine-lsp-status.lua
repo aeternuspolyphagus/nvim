@@ -1,5 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
+  lazy = true,
   opts = function(_, opts)
     -- === LSP Иконки ===
     local lsp_icons = {
@@ -38,22 +39,6 @@ return {
     vim.api.nvim_create_autocmd({ "CursorMoved", "InsertEnter", "TextChangedI" }, {
       callback = function()
         vim.cmd("redrawstatus")
-      end,
-    })
-    -- === llama-server status ===
-
-    opts.sections.lualine_x = opts.sections.lualine_x or {}
-
-    table.insert(opts.sections.lualine_x, 1, {
-      function()
-        return require("config.llama_server").statusline()
-      end,
-
-      color = function()
-        return {
-          fg = require("config.llama_server").statusline_color(),
-          gui = "bold",
-        }
       end,
     })
   end,
