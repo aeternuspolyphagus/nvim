@@ -1,5 +1,5 @@
 return {
-  "aeternuspolyphagus/rainbow-ts",
+  "aeternuspolyphagus/rainbow-pairs",
   event = "BufReadPre",
   lazy = true,
 }
