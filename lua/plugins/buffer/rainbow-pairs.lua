@@ -1,4 +1,19 @@
 return {
   "aeternuspolyphagus/rainbow-pairs",
-  event = "BufReadPre",
+  config = function()
+    require("rainbow-pairs").setup({
+      debounce = 80,
+      priority = 200,
+
+      colors = {
+        "RainbowRed",
+        "RainbowYellow",
+        "RainbowBlue",
+        "RainbowOrange",
+        "RainbowGreen",
+        "RainbowViolet",
+        "RainbowCyan",
+      },
+    })
+  end,
 }
